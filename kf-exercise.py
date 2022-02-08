@@ -13,18 +13,18 @@ def sim(init_v=15):
 
     kf = KF(v, pose, dt)
 
-    x_true = [0.0]
-    x_measured = [0.0]
-    x_pred = [0.0]
+    x_true = []
+    x_measured = []
+    x_pred = []
     v_arr = [v]
 
     while v > 0:
         v -= COEFF_FRIC
         pose = pose + v*dt
-        lidar = 200 - x_measured[-1]
         
         x_true.append(pose)
         pose_w_noise = pose + np.random.normal(loc=0.0, scale=0.5)
+        lidar = 200 - pose_w_noise
         x_measured.append(pose_w_noise)
 
         v_w_noise = v + np.random.normal(loc=0.0, scale=0.2)
