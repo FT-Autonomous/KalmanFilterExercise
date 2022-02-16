@@ -45,6 +45,8 @@ if __name__ == '__main__':
     plt.plot(x, measured)
     plt.plot(np.array(x), pred)
     plt.legend(("True", "Measured", "Pred"))
+    plt.ylabel("Distance from Starting Pose")
+    plt.xlabel("Time")
     plt.show()
 
     # plt.plot(x, v_arr)
