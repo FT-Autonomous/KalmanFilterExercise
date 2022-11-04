@@ -1,6 +1,7 @@
 from logging import Handler
 import numpy as np
 
+
 class KF:
 
     def __init__(self, init_v, init_pose=0.0, dt = 0.1):
